@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-time QR Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- QRious (small, client-side QR library that renders to canvas) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body class="light">
+  <header class="topbar">
+    <h1 class="title">URL to <span>QR CODE</span></h1>
+
+    
+  </header>
+
+  <main class="container">
+    <section class="input-section" aria-labelledby="input-heading">
+      <h2 id="input-heading" class="visually-hidden">QR Input</h2>
+
+      <div class="form-row">
+        <label for="singleInput" class="sr">Single-line input (URL or text)</label>
+        <input id="singleInput" class="text-input" type="text" placeholder="https://example.com or any text" aria-label="Single-line input for url or text" />
+      </div>
+
+      <div class="form-row">
+        <label for="multiInput" class="sr">Multi-line text</label>
+        <textarea id="multiInput" rows="4" placeholder="Or paste/enter a longer sentence..." aria-label="Multi-line input"></textarea>
+      </div>
+
+      <div class="row small">
+        <div class="size-group" role="radiogroup" aria-label="QR size">
+          <label><input name="size" type="radio" value="128" /> Small</label>
+          <label><input name="size" type="radio" value="256" checked /> Medium</label>
+          <label><input name="size" type="radio" value="512" /> Large</label>
+        </div>
+
+        <div class="live-mode" aria-live="polite" id="modeLabel">Mode: text</div>
+      </div>
+
+      <div class="templates">
+        <div class="templates-title">Templates</div>
+        <div id="swatches" class="swatches" role="list" aria-label="Color templates"></div>
+
+        <div class="custom-colors">
+          <label>Foreground <input id="fgColor" type="color" aria-label="Foreground color" /></label>
+          <label>Background <input id="bgColor" type="color" aria-label="Background color" /></label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="downloadBtn" class="btn" aria-label="Download QR as PNG">Download PNG</button>
+        <button id="resetBtn" class="btn outline" aria-label="Reset to example">Reset</button>
+      </div>
+    </section>
+
+    <section class="preview-section" aria-labelledby="preview-heading">
+      <h2 id="preview-heading" class="visually-hidden">QR Preview</h2>
+
+      <div class="preview-card">
+        <!-- canvas will be inserted here by script -->
+        <div id="qrWrap" class="qr-wrap" aria-hidden="false"></div>
+        <div class="preview-meta">
+          <div class="size-display">Size: <span id="sizeText">256</span>px</div>
+          <div class="format-note">Generated from: <strong id="generatedFrom">text</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Devloped By : <em id="exampleText">https://github.com/berserk-gif</em></small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
