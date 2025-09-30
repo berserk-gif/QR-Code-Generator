@@ -53,7 +53,7 @@ Replace the example text/URL in script.js (EXAMPLE variable).
 
 HTML5 – Structure
 
-CSS3 – Styling (responsive, dark/light themes)
+CSS3 – Styling (responsive, dark theme)
 
 JavaScript (Vanilla JS) – Real-time QR updates, events, and interactivity
 
